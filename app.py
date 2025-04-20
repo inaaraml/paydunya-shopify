@@ -58,4 +58,4 @@ def initier_paiement():
         return f"Erreur : {res_data.get('response_text', 'Impossible de générer le lien PayDunya')}", 400
 
 if __name__ == '__main__':
-    app.run()
+    app.run(host='0.0.0.0', port=10000)
