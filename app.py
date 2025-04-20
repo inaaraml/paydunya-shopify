@@ -10,7 +10,7 @@ private_key = "TON_PRIVATE_KEY"
 public_key = "TON_PUBLIC_KEY"
 token = "TON_TOKEN"
 
-@app.route('/initier-paiement', methods=['GET'])
+@app.route('/initier-paiement', methods=['POST'])
 def initier_paiement():
     data = {
         "invoice": {
@@ -35,6 +35,9 @@ def initier_paiement():
             "return_url": "https://ton-site-shopify.com/merci"
         }
     }
+
+    # Call PayDunya API with this data here...
+    return "Payment initiation page"
 
     headers = {
     'Content-Type': 'application/json',
