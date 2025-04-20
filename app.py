@@ -1,3 +1,4 @@
+import os
 from flask import Flask, request, redirect
 import requests
 
@@ -36,13 +37,13 @@ def initier_paiement():
     }
 
     headers = {
-        'Content-Type': 'application/json',
-        'Accept': 'application/json',
-        'PAYDUNYA-MASTER-KEY': master_key,
-        'PAYDUNYA-PRIVATE-KEY': private_key,
-        'PAYDUNYA-PUBLIC-KEY': public_key,
-        'PAYDUNYA-TOKEN': token
-    }
+    'Content-Type': 'application/json',
+    'Accept': 'application/json',
+    'PAYDUNYA-MASTER-KEY': master_key,   # this now gets the value from environment variables
+    'PAYDUNYA-PRIVATE-KEY': private_key, # this too
+    'PAYDUNYA-PUBLIC-KEY': public_key,   # this too
+    'PAYDUNYA-TOKEN': token              # this too
+}
 
     response = requests.post(
         'https://app.paydunya.com/api/v1/checkout-invoice/create',
